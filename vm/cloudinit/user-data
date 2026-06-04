@@ -1,0 +1,25 @@
+#cloud-config
+hostname: opsai-vm
+manage_etc_hosts: true
+users:
+  - default
+  - name: opsai
+    gecos: OpsAI Test User
+    groups: [adm, sudo]
+    shell: /bin/bash
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+    lock_passwd: false
+    passwd: "$1$YKPqjDhn$BBeuXs9psQpaP/UaupTGF1"
+    ssh_authorized_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK4vgZWVmQ50pinJRGlas08tpxXppsijKEQop1cwJh7N snowball@snowballs-MacBook-Pro.local
+ssh_pwauth: true
+package_update: true
+packages:
+  - build-essential
+  - cmake
+  - curl
+  - htop
+  - sysstat
+runcmd:
+  - systemctl enable --now ssh
+  - echo "opsai cloud-init ready" >/etc/opsai-ready

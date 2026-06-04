@@ -1,0 +1,29 @@
+#cloud-config
+autoinstall:
+  version: 1
+  locale: en_US.UTF-8
+  keyboard:
+    layout: us
+  identity:
+    hostname: opsai-vm
+    username: opsai
+    password: "$1$YKPqjDhn$BBeuXs9psQpaP/UaupTGF1"
+  ssh:
+    install-server: true
+    allow-pw: true
+    authorized-keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK4vgZWVmQ50pinJRGlas08tpxXppsijKEQop1cwJh7N snowball@snowballs-MacBook-Pro.local
+  packages:
+    - build-essential
+    - cmake
+    - curl
+    - htop
+    - sysstat
+  storage:
+    layout:
+      name: direct
+  late-commands:
+    - curtin in-target --target=/target -- systemctl enable ssh
+    - curtin in-target --target=/target -- bash -lc 'echo "opsai ALL=(ALL) NOPASSWD:ALL" >/etc/sudoers.d/90-opsai'
+    - curtin in-target --target=/target -- chmod 440 /etc/sudoers.d/90-opsai
+  shutdown: reboot

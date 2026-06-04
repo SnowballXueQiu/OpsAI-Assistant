@@ -1,0 +1,3 @@
+config/probe.conf etc/opsai/
+config/opsai-probe.service lib/systemd/system/
+

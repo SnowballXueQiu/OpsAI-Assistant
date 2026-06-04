@@ -1,0 +1,14 @@
+Source: opsai-probe
+Section: admin
+Priority: optional
+Maintainer: Linux Homework Team <team@example.local>
+Build-Depends: debhelper-compat (= 13), cmake, g++
+Standards-Version: 4.6.2
+
+Package: opsai-probe
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Linux server probe for OpsAI assistant
+ Collects CPU, memory, disk and log summaries, then posts them to the OpsAI
+ Next.js dashboard.
+

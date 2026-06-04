@@ -1,0 +1,75 @@
+# macOS / editor
+.DS_Store
+._*
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+/logs/
+/tmp/logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+dist/
+coverage/
+.turbo/
+.vercel/
+*.tsbuildinfo
+
+# pnpm
+.pnpm-store/
+
+# CMake / C++ build outputs
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+opsai-probe
+
+# Probe packaging artifacts
+*.deb
+*.rpm
+*.tar.gz
+*.tgz
+
+# Virtual machine images and generated boot media
+/vm/extract/
+*.iso
+*.qcow2
+*.img
+*.raw
+*.vmdk
+*.fd
+*.lock
+
+# VM credentials generated for local QEMU testing
+vm/*_ed25519
+vm/*_ed25519.pub
+vm/id_*
+
+# Runtime temp files
+tmp/
+temp/
+.cache/
